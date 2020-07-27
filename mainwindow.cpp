@@ -13,10 +13,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widgetPlot->setInteraction(QCP::iRangeDrag, true);
     ui->widgetPlot->setInteraction(QCP::iRangeZoom, true);
     ui->widgetPlot->addGraph();
-    ui->widgetPlot->graph(0)->setScatterStyle(QCPScatterStyle::ssCircle);
-    ui->widgetPlot->graph(0)->setLineStyle(QCPGraph::lsNone);
+    //ui->widgetPlot->graph(0)->setScatterStyle(QCPScatterStyle::ssCircle);
+    //ui->widgetPlot->graph(0)->setLineStyle(QCPGraph::lsNone);
     ui->widgetPlot->xAxis->setLabel("X");
     ui->widgetPlot->yAxis->setLabel("Y");
+    ui->widgetPlot->graph(0)->setPen(QPen(Qt::blue));
+    ui->widgetPlot->graph(0)->setBrush(QBrush(QColor(0,0,255,20)));
+    ui->widgetPlot->graph(0)->setLineStyle(QCPGraph::lsLine);
     ui->widgetPlot->setWindowTitle("Data thread");
     connect(ui->widgetPlot,SIGNAL(mouseDoubleClick(QMouseEvent*)), SLOT(clickedGrahp(QMouseEvent*)));
 }
